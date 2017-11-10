@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<div class="row">
+  <div class="col-sm-12">
+    <form class="server-form" method="post">
+      <div class="form-group">
+        <label for="number1">Enter a String</label>
+        <input type="input" class="form-control" id="palindrome" name="palindrome" placeholder="enter string" value="{{word}}">
+      </div>
+      {{#if error }}
+      <div class="form-group">
+        <div class="alert alert-danger">
+          {{ error }}
+        </div>
+      </div>
+      {{/if}}
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit </button>
+      </div>
+
+
+      
+      {{#if result }}
+      
+      <div class="form-group">
+        <div class="alert alert-success">
+          The result is: {{ result }}
+        </div>
+      </div>
+      
+      
+      {{else}}
+      
+      <div class="form-group">
+        <div class="alert alert-danger">
+          The result is: {{ result }}
+        </div>
+      </div>
+      
+      {{/if }}
+      
+
+     {{!-- {{#if result}} --}}
+      <div>
+        <ul class = "isPalindrome"> 
+          {{#each array}}
+            <li>{{this}}</li>
+            {{/each}}
+        </ul>
+      </div>
+      {{!-- {{else}} --}}
+      <div>
+        <ul class = "isNotPalindrome"> 
+          {{#each array1}}
+            <li>{{this}}</li>
+            {{/each}}
+        </ul>
+      </div>
+      {{!-- {{/if}} --}}
+      
+
+
+      {{!-- {{#if result}}
+      <div class="form-group">
+        <div class="alert alert-info">
+          <ul>
+            {{#each array}}
+            <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+       {{else}}
+      <div class="form-group">
+        <div class="alert alert-danger">
+          <ul>
+            {{#each array1}}
+            <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      {{/if }} --}}
+      
+      
+    </form>
+ 
+  </div>
+</div>

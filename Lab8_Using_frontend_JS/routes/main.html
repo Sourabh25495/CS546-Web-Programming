@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palindrome checker</title>
+    <link href="/public/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
+</head>
+
+<body>
+
+    <header>
+        <h1>Palindrome</h1>
+        <h4>A String Checker</h4>
+    </header>
+
+    <div class="container">
+            <form id="staticForm">
+                    
+                    <div class="form-group">
+                            <label>Enter a String</label>
+                            <input type="text" class="form-control" id="palindrome" placeholder="enter string">
+                    </div>
+
+                    <!-- <div class="form-group hidden" id="error-container"> -->
+                            <div class="alert alert-danger" id="error">
+                            </div>
+                    <!-- </div> -->
+
+                    <button type="submit" class="btn btn-primary" id="submit">Submit Your String </button>
+                    <!-- <input type= = "text" id = "palindrome"/>
+                    <button type="submit" id = "submit" /> -->
+
+                    <br/><br/>
+            
+            </form>
+
+                <div class="alert alert-success" id="output">
+                       
+                </div>
+                <div class="alert alert-danger" id="output1"></div>
+                <!-- <p id="p"></p> -->
+
+               <div id = "scroll">
+                <ul id="valid" class="is-palindrome"></ul>
+                <ul id="invalid" class="not-palindrome"></ul>
+               </div>
+                
+    </div>
+    <footer>
+            <p>Created by by: Sourabh Kulkarni</p>
+            <p>Student ID: 10412978</p>
+            <p>Enjoying We Programming</p>
+            
+    </footer>
+    <script src= "../public/js/forms.js"></script>
+
+    
+</body>
+
+</html>
+
+
+
+
+
