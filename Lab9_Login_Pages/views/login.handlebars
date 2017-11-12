@@ -1,8 +1,28 @@
 <form>
 
 
-{{!-- 
-detalis go here --}}
+<h1>Login System: </h1>
+<div class = "container1">
+    <label>username:<input type="text" name="username"/></label>
+
+</div>
+
+<div class = "container1">
+    <label>password:<input type="text" name="username"/></label>
+
+</div>
+<div class = "container">
+    <input type="submit" value="Log In">
+
+</div>
+
+{{#if error}}
+<div class="row">
+    <span>{{message}}</span>
+
+</div>
+{{/if}}
+
 
 
 </form>
