@@ -19,6 +19,23 @@ app.get('/', (req, res) => {
     }
 })
 
+app.get('/login', (req, res) => {
+    if(!req.isAuthenticated){
+        if(req.session.flash && req.session.flash.error){
+            res.render('login', {
+                error: true,
+                message: req.session.flash.error.slice(-1)[0]
+            });
+            return
+        }
+            res.render('login',{
+                error: false
+            })
+    }else{
+        res.redirect('/private')
+    }
+})
+
 
 }
 
