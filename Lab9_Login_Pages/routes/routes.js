@@ -32,7 +32,7 @@ app.get('/login', (req, res) => {
                 error: false
             })
     }else{
-        res.redirect('/private')
+        res.redirect('/private');
     }
 })
 
