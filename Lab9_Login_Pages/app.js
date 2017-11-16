@@ -7,7 +7,7 @@ const flash = require('connect-flash')
 // const static = express.static(__dirname + "/public");
 // const server = express.static(__dirname + "/public");
 let app = express();
-app.use('/public', express.static(__dirname + '/public'));
+
 
 const configureRoutes = require("./routes")
 
@@ -44,6 +44,9 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }))
   
+app.use(flash()); 
+app.use(cookieParser()); 
+app.use('/public', express.static(__dirname + '/public'));
 
 app.use(rewriteUnsupportedBrowserMethods);
 app.engine('handlebars', handlebarsInstance.engine);

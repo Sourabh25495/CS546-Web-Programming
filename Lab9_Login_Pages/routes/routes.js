@@ -3,6 +3,54 @@ let router = express.Router();
 const passport = require('passport');
 
 
+const LocalStrategy = require('passport-local').Strategy;
+const path = require('path');
+users = require('../data/');
+
+
+let configurePassport = (passport) => {
+    
+        passport.use(new LocalStrategy(
+            (username, password, done) => {
+                let res = users.matchPassword(username, password);
+    
+                if (res.status)
+                    return done(null, res.message);
+    
+                return done(null, false, {
+                    message: res.message
+                });
+            }
+        ));
+
+        passport.serializeUser((user, done) => {
+            done(null, user);
+        });
+    
+        passport.deserializeUser((user, done) => {
+            let auth = user.split(' ');
+            if (auth.length != 2)
+                return done(null, false, {
+                    message: "Cookie is not valid"
+                });
+    
+            let username = auth[0];
+            let password = auth[1];
+    
+            let res = users.matchPassword(username, password);
+    
+            if (res.status)
+                return done(null, res.message);
+    
+            return done(null, false, {
+                message: res.message
+            });
+        });
+    }
+    
+    configurePassport(passport);
+
+
 // router.get("/",function(req,res){
 //    res.send("HII");
 // });
