@@ -1,7 +1,7 @@
 let Routes = require("./routes");
 
 const constructorMethod = app => {
-    app.use("/", Routes);
+    app.use("/login", Routes);
   
    
   };

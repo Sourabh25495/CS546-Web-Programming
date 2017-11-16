@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/login', (req, res) => {
-    if(!req.isAuthenticated){
+    if(!req.isAuthenticated()){
         if(req.session.flash && req.session.flash.error){
             res.render('login', {
                 error: true,
@@ -36,8 +36,22 @@ app.get('/login', (req, res) => {
     }
 })
 
+app.get('/private', (req,res) =>{
 
+    if(req.isAuthenticated()){
+        let username = req.user.split(' ')[0];
+        let userInfo = users.checkUsername(username);
+        res.render('private', {
+            username: username,
+            UserData: userInfo
+        });
+    } else {
+        res.redirect('/login');
+    }
+
+})
 }
+
 
 
 
