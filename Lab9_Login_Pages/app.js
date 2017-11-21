@@ -1,61 +1,64 @@
-let express = require("express");
-let bodyParser = require("body-parser");
-const Handlebars = require("handlebars");
-const exphbs = require("express-handlebars");
-const cookieParser = require('cookie-parser');
-const flash = require('connect-flash')
-// const static = express.static(__dirname + "/public");
-// const server = express.static(__dirname + "/public");
-let app = express();
-
-
-const configureRoutes = require("./routes")
+const express = require('express'),
+app = express(),
+flash = require('connect-flash'),
+bodyParser = require('body-parser'),
+configureRoutes = require('./routes'),
+cookieParser = require('cookie-parser'),
+session = require('express-session'),
+exphbs = require('express-handlebars'),
+Handlebars = require('handlebars');
 
 const handlebarsInstance = exphbs.create({
-	defaultLayout: 'main',
-	helpers: {
-		asJSON: (obj, spacing) => {
-			if (typeof spacing === "number")
-				return new Handlebars.SafeString(JSON.stringify(obj, null, spacing));
+defaultLayout: 'main',
+helpers: {
+    asJSON: (obj, spacing) => {
+        if (typeof spacing === "number")
+            return new Handlebars.SafeString(JSON.stringify(obj, null, spacing));
 
-			return new Handlebars.SafeString(JSON.stringify(obj));
-		}
-	},
-	partialsDir: [
-		'views/partials/'
-	]
+        return new Handlebars.SafeString(JSON.stringify(obj));
+    }
+},
+partialsDir: [
+    'views/partials/'
+]
 });
 
-
 const rewriteUnsupportedBrowserMethods = (req, res, next) => {
-	if (req.body && req.body._method) {
-		req.method = req.body._method;
-		delete req.body._method;
-	}
+if (req.body && req.body._method) {
+    req.method = req.body._method;
+    delete req.body._method;
+}
 
-	next();
+next();
 };
 
+app.use(session({
+secret: 'keyboard cat',
+resave: false,
+saveUninitialized: true,
+cookie: {
+    secure: false 
+}
+}))
 
+app.use(flash()); 
+app.use(cookieParser()); 
+
+app.use('/public', express.static(__dirname + '/public'));
 
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
-	extended: true
+extended: true
 }))
-  
-app.use(flash()); 
-app.use(cookieParser()); 
-app.use('/public', express.static(__dirname + '/public'));
+
 
 app.use(rewriteUnsupportedBrowserMethods);
 app.engine('handlebars', handlebarsInstance.engine);
 app.set('view engine', 'handlebars');
 
 configureRoutes(app);
-//let configRoutes = require("./routes");
-//configRoutes(app);
 
-app.listen(3000, function(){
-    console.log("Server running on port 3000...");
-})
+app.listen(3000, 'localhost', () => {
+console.log('server running on http://localhost:3000');
+});
