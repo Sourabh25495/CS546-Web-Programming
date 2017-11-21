@@ -63,6 +63,7 @@ app.get('/private', (req, res) => {
   if (req.isAuthenticated()) {
     let username = req.user.split(' ')[0];
     let userInfo = users.checkUsername(username);
+    console.log(userInfo)
     res.render('private', {
       username: username,
       UserData: userInfo
