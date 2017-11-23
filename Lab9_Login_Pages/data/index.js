@@ -4,7 +4,7 @@ let users = {
 	masterdetective123: { 
 		_id: "1245325124124",
 		 username: "masterdetective123",
-		 password: "$2a$10$1uFYNxuDaGRdHFyINZ5vXuuj1g23fcKj/0D1MxtVCyQpuVPeVjtgS", 
+		 password: "$2a$16$7JKSiEmoP3GNDSalogqgPu0sUbwder7CAN/5wnvCWe6xCKAKwlTD.", 
 		 firstName: "Sherlock", 
 		 lastName: "holmes", 
 		 profession: "Detective", 
@@ -13,7 +13,7 @@ let users = {
 	lemon: {
 		_id: "723445325124124", 
 		username: "lemon", 
-		password: "$2a$10$N369wpJYkWpz.Vz42RZ/5eFcu7NN6xNaQ/937oKl8bvkpmMCQ163G", 
+		password: "$2a$16$SsR2TGPD24nfBpyRlBzINeGU61AH0Yo/CbgfOlU1ajpjnPuiQaiDm", 
 		firstName: "Elizabeth", 
 		lastName: "Lemon", 
 		profession: "Writer", 
@@ -22,7 +22,7 @@ let users = {
 	theboywholived: {
 		_id: "723448953124124",
 		username: "theboywholived", 
-		password: "$2a$10$g0Xy90Ou4Jg6SPjfk8nuHeewnxzOjJKjMHJSj4z5JTfIZdh7NpDmS", 
+		password: "$2a$16$4o0WWtrq.ZefEmEbijNCGukCezqWTqz1VWlPm/xnaLM8d3WlS5pnK", 
 		firstName: "Harry", 
 		lastName: "Potter", 
 		profession: "Writer",

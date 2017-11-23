@@ -68,35 +68,55 @@ app.get('/private', (req, res) => {
       username: username,
       UserData: userInfo
     });
+    //next();
   } else {
     res.redirect('/login');
   }
 
 })
 
-app.get('/login', (req, res) => {
+// app.get('/', (req, res) => {
+//   if (!req.isAuthenticated()) {
+//     if (req.session.flash && req.session.flash.error) {
+//       res.render('login', {
+//         error: true,
+//         message: req.session.flash.error.slice(-1)[0]
+//       });
+//       return
+//     }
+//     res.render('login', {
+//       error: false
+//     });
+//   } else {
+//     res.redirect('/private');
+//   }
+// });
+
+app.get('/', (req, res) => {
   if (!req.isAuthenticated()) {
+    
     if (req.session.flash && req.session.flash.error) {
       res.render('login', {
         error: true,
         message: req.session.flash.error.slice(-1)[0]
       });
+      
       return
     }
     res.render('login', {
       error: false
+      
     });
+    //res.redirect('/private');
   } else {
     res.redirect('/private');
+    
   }
-});
-
-app.get('/', (req, res) => {
-  if (req.isAuthenticated()) {
-    res.redirect('/private');
-  } else {
-    res.redirect('/login')
-  }
+  // if (!req.isAuthenticated()) {
+  //   res.redirect('/private');
+  // } else {
+  //   res.redirect('/login')
+  // }
 })
 }
 
