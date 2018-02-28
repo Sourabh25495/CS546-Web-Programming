@@ -1,0 +1,20 @@
+[
+    {
+        "noteTitle": "LAB10",
+        "dueDate": "2018-2-28",
+        "summary": "Dynamic Pages using ajax and jquery",
+        "noteBody": "hello lab. "
+    },
+    {
+        "noteTitle": "hello",
+        "dueDate": "2018-2-28",
+        "summary": "good morning",
+        "noteBody": " have a nice day"
+    },
+    {
+        "noteTitle": "Sourabh Kulkarni",
+        "dueDate": "2018-2-28",
+        "summary": "I am on OPT",
+        "noteBody": "I studied at stevens institute of technology "
+    }
+]
